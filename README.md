@@ -1,33 +1,19 @@
 🧱 Infrastructure Overview
 
-Dev Node: EC2 (Spot) – t2.medium, 50GB gp3
+Dev Node: EC2  – t2.medium (Minimun), 50GB gp3
 
-Pre-Live Node: EC2 (Spot) – t2.medium, 70GB gp3
+Pre-Live Node: EC2  – t2.medium (Minimum), 70GB gp3
 
 Prod Node: EC2 (On-Demand) – m5.large, 50GB io1
 
 All servers use Ubuntu 22.04 LTS.
 
-📁 Directory Structure
-
-jenkins-infra-setup/
-├── jenkins/                     # Jenkins configuration
-├── ansible/                     # Ansible playbooks for setup
-├── docker/                      # Dockerfiles
-├── packer/                      # Packer templates
-├── terraform/                   # Infrastructure-as-code
-├── maven/                       # Maven settings
-├── ssl/                         # SSL certificate setup
-├── install-scripts/             # Shell scripts for tool installation
-└── docs/                        # Documentation
 
 🚀 Step-by-Step Setup
 
 1. ✅ EC2 Instance Creation
 
 Use Terraform to define and provision the 3 EC2 nodes.
-
-Example AMI: ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server
 
 cd terraform/
 terraform init
@@ -88,9 +74,6 @@ Using certbot:
 sudo apt install certbot
 sudo certbot certonly --standalone -d yourdomain.com
 
-Set up renewal cron job:
-
-0 3 * * * certbot renew --quiet
 
 6. 📊 SonarQube Setup
 
@@ -145,9 +128,8 @@ Jenkins CLI:
 
 java -jar jenkins-cli.jar -s http://localhost:8080/ help
 
-Restart Jenkins:
+Restart Jenkins
 
-sudo systemctl restart jenkins
 
 🧹 Cleanup
 

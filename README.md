@@ -122,12 +122,6 @@ Regularly update Jenkins and plugins
 
 Use secrets manager for credentials
 
-📦 Useful Commands
-
-Jenkins CLI:
-
-java -jar jenkins-cli.jar -s http://localhost:8080/ help
-
 Restart Jenkins
 
 
